@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+        }
+
+
+        section {
+            display: flex;
+        }
+
+
+        .box {
+            width: 100%;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+
+        input,
+        button {
+            width: 90%;
+            padding: 5px;
+            margin: 5px 0px;
+            font-weight: 600;
+        }
+
+
+        button {
+            width: 94%;
+        }
+
+
+        .head {
+            background-color: orange;
+            margin: 0px 15px;
+            border-radius: 6px;
+        }
+
+
+        table {
+            width: 630px;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+
+        td {
+            font-weight: 400;
+        }
+
+
+        td,
+        th {
+            padding: 2px;
+        }
+
+
+        .box1 {
+            width: 80%;
+        }
+
+
+        .actionBtn {
+            width: 29px;
+            height: 35px;
+            border-radius: 7px;
+            border: none;
+            color: white;
+        }
+
+
+        .edit {
+            background-color: rgb(76, 76, 238);
+        }
+
+
+        .trash {
+            background-color: rgb(240, 52, 52);
+        }
+    </style>
+</head>
+
+
+<body>
+    <section>
+        <div class="box box1">
+            <h1 class="head">Create Employee</h1>
+            <input type="text" placeholder="Enter Name" id="empName">
+            <input type="text" placeholder="Enter Email" id="empEmail">
+            <input type="text" placeholder="Enter Role" id="empRole">
+            <input type="text" placeholder="Enter Salery" id="empSalery">
+            <input type="text" placeholder="Enter Contact" id="empPhone">
+            <input type="text" placeholder="Enter Address" id="empAddress">
+            <button id="addBtn" onclick="addEmployee()">Add to List</button>
+        </div>
+        <div class="box">
+            <h1 class="head">Show list</h1>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>EMAIL</th>
+                        <th>ROLE</th>
+                        <th>SALERY</th>
+                        <th>PHONE</th>
+                        <th>ADDRESS</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="box box1">
+            <h1 class="head">Update Employee</h1>
+            <input type="text" placeholder="Enter Name" id="empName1">
+            <input type="text" placeholder="Enter Email" id="empEmail1">
+            <input type="text" placeholder="Enter Role" id="empRole1">
+            <input type="text" placeholder="Enter Salery" id="empSalery1">
+            <input type="text" placeholder="Enter Contact" id="empPhone1">
+            <input type="text" placeholder="Enter Address" id="empAddress1">
+            <button>Update Employee</button>
+        </div>
+    </section>
+
+
+    <script>
+        let EmpoyeeList = [
+            {
+                emp_name: 'Vinod',
+                emp_Email: 'vinod@gmail.com',
+                emp_Role: 'Developer',
+                emp_Salery: 25000,
+                emp_Phone: 1234567890,
+                emp_Address: 'Baner Pune'
+            },
+            {
+                emp_name: 'Reenal',
+                emp_Email: 'reenal@gmail.com',
+                emp_Role: 'Tester',
+                emp_Salery: 25500,
+                emp_Phone: 1234567890,
+                emp_Address: 'Deccan Pune'
+            },
+        ]
+
+
+        function addEmployee() {
+            let name = document.querySelector('#empName').value
+            let email = document.querySelector('#empEmail').value
+            let role = document.querySelector('#empRole').value
+            let salery = document.querySelector('#empSalery').value
+            let phone = document.querySelector('#empPhone').value
+            let address = document.querySelector('#empAddress').value
+
+
+            let obj = {
+                emp_name: name,
+                emp_Email: email,
+                emp_Role: role,
+                emp_Salery: salery,
+                emp_Phone: phone,
+                emp_Address: address
+            }
+
+
+            EmpoyeeList.push(obj)
+            // console.log(EmpoyeeList);
+            showEmployeeData()//here we are displaying the data in table
+
+         // after that we are clearing the data from form
+         
+            document.querySelector('#empName').value = ''
+            document.querySelector('#empEmail').value = ''
+            document.querySelector('#empRole').value = ''
+            document.querySelector('#empSalery').value = ''
+            document.querySelector('#empPhone').value = ''
+            document.querySelector('#empAddress').value = ''
+
+
+        }
+
+
+        function showEmployeeData() {
+            let tbody = document.querySelector('tbody')
+            tbody.innerHTML = ''
+            for (i = 0; i < EmpoyeeList.length; i++) {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${EmpoyeeList[i].emp_name}</td>
+                        <td>${EmpoyeeList[i].emp_Email}</td>
+                        <td>${EmpoyeeList[i].emp_Role}</td>
+                        <td>${EmpoyeeList[i].emp_Salery}</td>
+                        <td>${EmpoyeeList[i].emp_Phone}</td>
+                        <td>${EmpoyeeList[i].emp_Address}</td>
+                        <td>
+                            <button class="actionBtn edit">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </button>
+                            <button class="actionBtn trash" onclick="deleteRow(${i})">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `
+            }
+
+
+        }
+        showEmployeeData()
+
+
+        function deleteRow(index) {
+            EmpoyeeList.splice(index, 1)
+            // console.log(EmpoyeeList);
+            showEmployeeData()
+        }
+    </script>
+</body>
+
+
+</html>
