@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+      body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 140px;
+        margin-top: 60px;
+        background-color: #aaa4a4;
+    }
+    #text{
+      margin-bottom: 10px; 
+      width: 500px;
+      height: 200px;
+      border: 5px solid #d89393;
+      padding: 10px;
+      overflow-y: auto;
+
+
+    }
+    #fonts{
+        padding: 10px;
+        margin-top: 10px;
+        border: 2px solid black;
+        background-color: aliceblue;
+        color: black;
+        border-radius: 5px;
+    }
+
+    input{
+        border: 2px solid black;
+        padding: 10px;
+        border-radius: 3px;
+    }
+    
+   </style>
+</head>
+<body>
+    <div id="text" contenteditable="true">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem fuga commodi veniam quos nobis ea aut, sint dolores optio deleniti recusandae blanditiis quis ipsum voluptas reprehenderit. Ipsa labore magnam ullam, eaque modi provident maiores, tempora id repudiandae assumenda praesentium libero.</div>
+    <input type="text" onkeyup="fn(value)">
+
+    <select name="cars" id="fonts" onchange="gn(this.value)" >
+        <option value="bold" ><b>bold</b> </option>
+        <option value="italic"><i>italic</i> </option>
+        <option value="uppercase"><b>uppercase</b></option>
+        <option value="lowercase"><b>lowercase</b></option>
+        <option value="underline"><b>underline</b></option>
+      </select>
+      
+      
+      <script>
+        function fn(textvalue){
+           document.getElementById('text').style.background=textvalue;
+
+            
+        }
+
+function gn(style) {
+            let textarea = document.getElementById('text');
+
+            if (style === 'bold') {
+                textarea.style.fontWeight = 'bold';
+            } else if (style === 'italic') {
+                textarea.style.fontStyle = 'italic';
+            } else if (style === 'uppercase') {
+                textarea.style.textTransform = 'uppercase';
+            } else if (style === 'lowercase') {
+                textarea.style.textTransform = 'lowercase';
+            }
+            else if (style === 'underline') {
+                textarea.style.textDecoration = 'underline';
+            }
+          
+        }
+      </script>
+</body>
+</html>

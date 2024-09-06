@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Orbitron", sans-serif;
+        }
+
+
+        section {
+            display: flex;
+            justify-content: center;
+            height: 600px;
+            align-items: center;
+        }
+
+
+        ul {
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+            margin: 15px 0px;
+        }
+
+
+        button {
+            width: 60px;
+            height: 60px;
+            font-size: 2rem;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        .box {
+            border-radius: 30px;
+            box-shadow: 0px 0px 5px gray;
+        }
+
+
+        .screen {
+            background-color: rgb(220, 220, 220);
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+
+
+        }
+
+
+        input {
+            font-size: 30px;
+            padding: 42px 25px;
+            border: none;
+            outline: none;
+            background: none;
+            width: 300px;
+            font-weight: 500;
+        }
+
+
+        .btnBox {
+            padding: 17px 17px;
+        }
+
+
+        .total {
+            background-color: orange;
+        }
+
+
+        button:active {
+            background-color: rgb(224, 224, 224);
+        }
+
+
+        .special {
+            justify-content: space-evenly;
+            gap: 30px;
+
+
+        }
+
+
+        .special li{
+            width: 100%;
+        }
+
+
+        .special li button{
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <section>
+        <div class="mainBox">
+            <div class="box">
+                <div class="screen">
+                    <input readonly type="text" name="" id="calScreen">
+                </div>
+                <div class="btnBox">
+                    <ul class="special">
+                        <li><button onclick="deleteLetter()">Del</button></li>
+                        <li><button onclick="allClear()">AC</button></li>
+                    </ul>
+                    <ul>
+                        <li><button onclick="getBtnVal(innerText)">7</button></li>
+                        <li><button onclick="getBtnVal(innerText)">8</button></li>
+                        <li><button onclick="getBtnVal(innerText)">9</button></li>
+                        <li><button onclick="getBtnVal(innerText)">+</button></li>
+                    </ul>
+
+                    <ul>
+                        <li><button onclick="getBtnVal(innerText)">4</button></li>
+                        <li><button onclick="getBtnVal(innerText)">5</button></li>
+                        <li><button onclick="getBtnVal(innerText)">6</button></li>
+                        <li><button onclick="getBtnVal(innerText)">-</button></li>
+                    </ul>
+
+                    <ul>
+                        <li><button onclick="getBtnVal(innerText)">1</button></li>
+                        <li><button onclick="getBtnVal(innerText)">2</button></li>
+                        <li><button onclick="getBtnVal(innerText)">3</button></li>
+                        <li><button onclick="getBtnVal(innerText)">*</button></li>
+                    </ul>
+
+                    <ul>
+                        <li><button onclick="getBtnVal(innerText)">0</button></li>
+                        <li><button onclick="getBtnVal(innerText)">.</button></li>
+                        <li><button onclick="getBtnVal(innerText)">/</button></li>
+                        <li><button class="total" onclick="calTotal()">=</button></li>
+                    </ul>
+                    
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        function getBtnVal(btnVal) {
+            // console.log(btnVal);
+            document.getElementById('calScreen').value += btnVal
+        }
+
+
+        function calTotal() {
+            let inputVal = document.getElementById('calScreen').value
+            document.getElementById('calScreen').value = eval(inputVal)
+        }
+
+
+        function deleteLetter(){
+            let inputVal = document.getElementById('calScreen').value
+            document.getElementById('calScreen').value = inputVal.slice(0,-1)
+        }
+
+
+        function allClear(){
+            document.getElementById('calScreen').value = ''
+        }
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .div1{
+            background-color: aqua;
+            width: 200px;
+            height: 120px;
+            margin: 50px;
+            margin-left: 600px;
+           
+        } */
+      body{
+        
+      }
+      
+    </style>
+</head>
+<body>
+<!--          
+                <div class="div1">
+           
+          
+
+           
+           
+
+                </div>
+                <input type="text">
+                <input type="text"> -->
+                
+         <!-- <input type="text" onmouseleave="fn()"> 
+            if with event we are taking value as argument then it directly calling function with this input value
+            onkeyup is event when we put the value inside the input then that time it get effect and  onmouseleave is mouse event when our mouse is leave 
+            <input type="text" onkeyup="fn(value)">
+            
+            ek text area me  uska text change karna hai
+            
+            -->
+            
+            <input  style="margin-left: 400px;"  type="text" onkeyup="fn(value)">
+             
+       
+         <script>
+
+            // in which we are taking parametric fucntion and the function we are calling inside input tag which is aking its value that we enter 
+           function fn(innervalue){
+
+            //let x= document.getElementsByTagName('input')[0].value;
+            document.body.style.backgroundImage='url(' + innervalue +')';// for background image we take string url so use '' inside this we are putting values of src
+            
+           }
+           
+         </script>
+   
+</body>
+</html>

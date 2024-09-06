@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form 2</title>
+    <style>
+
+        #main{
+            display: flex;
+
+        }
+        .display{
+            margin-left: 100px;
+            background-color: aqua;
+            border: 2px solid black;
+            color: black;
+            width: 500px;
+            padding: 10px;
+        }
+        table{
+            margin: 0px;
+            background-color: beige;
+            border: 1px solid green;
+            color: black;
+            margin-left: 200px;
+            padding: 10px 5px;
+            padding-right: 50px;
+        }
+        td {
+    padding: 5px; /* Adjust the value as needed */
+}
+
+       
+    </style>
+  </head>
+  <body>
+    <div id="main">
+    <table>
+      <tr class="row">
+        <td><label for="">Name</label></td>
+
+        <td><input type="text" placeholder="enter name here" /></td>
+      </tr>
+      <tr class="row">
+        <td><label for="">Mobile Number</label></td>
+        <td><input type="number" placeholder="enter mob number" /></td>
+      </tr>
+      <!-- <tr class="row">
+        <td><label for="">Email</label></td>
+        <td><input type="email" placeholder="enter eamail here" /></td>
+      </tr> -->
+     
+
+      <tr class="row">
+        <td>
+          <label for="">Date of Birth </label>
+          
+        </td>
+        <td><input type="text" placeholder="enter birth date" /></td>
+      </tr>
+      <tr><td colspan="2" style="text-align: center;"><button style="background-color: red;color: black;border-radius: 4px;padding: 5px;" onclick="gn()"> <b>Submit</b></button></td></tr>
+    </table>
+
+
+    <div class="display">
+         <p></p>
+         <p></p>
+         <p></p>
+      
+    </div>
+</div>
+<script>
+
+  function gn(){
+    //    let x=document.getElementsByTagName('input')[0].value;
+    //   document.querySelectorAll('.display p')[0].innerHTML=`<ul><li> ${x}</li></ul>`;
+
+    //   let y=document.getElementsByTagName('input')[1].value;
+    //   document.querySelectorAll('.display p')[1].innerHTML=`<ul><li> ${y}</li></ul>`;
+
+    //   let z=document.getElementsByTagName('input')[2].value;
+    //   document.querySelectorAll('.display p')[2].innerHTML=`<ul><li> ${z}</li></ul>`;
+       
+    let x = document.getElementsByTagName('input')[0].value;
+    let y = document.getElementsByTagName('input')[1].value;
+    let z = document.getElementsByTagName('input')[2].value;
+    
+    let paragraphs = document.getElementsByClassName('display')[0].getElementsByTagName('p'); // Select all <p> inside .display
+    
+    paragraphs[0].innerHTML = `<ul><li>${x}</li></ul>`;
+    paragraphs[1].innerHTML = `<ul><li>${y}</li></ul>`;
+    paragraphs[2].innerHTML = `<ul><li>${z}</li></ul>`;
+
+  }
+
+</script>
+  </body>
+</html>

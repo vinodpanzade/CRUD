@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Dynammic</title>
+    <style>
+     .table{
+        background-color: aliceblue;
+        margin-left: 10px;
+        margin-top: 50px;
+      
+     }
+
+   .tr{
+    margin: 20px;
+   }
+    </style>
+</head>
+<body>
+    <table class="table">
+        <tr class="tr">
+            <td><label for="">Name:</label></td>
+            <td><input type="text"></td>
+        </tr>
+        <!-- <tr class="tr">
+            <td><label for="">Email:</label></td>
+            <td><input type="email"></td>
+        </tr>
+        <tr class="tr">
+            <td><label for="">Number:</label></td>
+            <td><input type="number"></td>
+        </tr> -->
+        <!-- <tr><td>
+            <button style="margin-left: 50px;">submit</button>
+        </td></tr> -->
+    </table>
+    <button onclick="hn()" style="margin-left: 60px; margin-top: 10px; color: red; background-color: aqua; "> <b>Submit</b></button>
+    
+       <div id="box">
+
+       </div>
+
+    <!-- <p></p>
+    <p></p>
+    <p></p> -->
+    
+    <script>
+         function hn(){
+            let x= document.getElementsByTagName('input')[0].value;
+            // let y= document.getElementsByTagName('input')[1].value;
+            // let z= document.getElementsByTagName('input')[2].value;
+            document.getElementById('box').innerHTML= ` <h1> ${x}  </h1>`  //back tack
+            
+            //we can aslo create elemrtn inside our class or id in which if whatever elemtn we want we can create we also pass the varible using ${varibale name}
+
+            // let y= document.getElementsByTagName('input')[1].value;
+            // document.getElementsByTagName('p')[1].innerText=y;
+
+
+            // let z= document.getElementsByTagName('input')[2].value;
+            // document.getElementsByTagName('p')[2].innerText=z;            we have to put name of image and src and display on next line
+
+
+         }
+      
+
+    </script>
+</body>
+</html>

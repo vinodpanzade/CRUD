@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+  .on{
+    display: none;
+  }
+  .onoff{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(21, 150, 150);
+  }
+  .but{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+background-color: aqua;
+
+   
+  }
+</style>
+
+</head>
+<body>
+    <div class="onoff">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKb-2bo3PEfKMs5BtEeJC1du0Z8p4CaznF0g&s" alt="Put Bulb" >
+    <img class="on" src="https://img.freepik.com/free-vector/realistic-light-bulb-with-electricity_23-2149129410.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1725148800&semt=ais_hybrid" alt="Put Bulb" >
+  
+    </div>
+    <div class="but">
+        <button onclick="bulbon()">ON</button>
+        <button onclick="bulbof()">OFF</button>
+       </div>
+  <script>
+   function bulbon(){
+    // let x=document.getElementsByTagName('img')[0];
+    // if(x=="https://cdn1.byjus.com/wp-content/uploads/2021/05/word-image7.png"){
+
+
+    // }
+    document.getElementsByTagName('img')[0].style.display='none';
+    document.getElementsByTagName('img')[1].style.display='block';
+   }
+   function bulbof(){
+    document.getElementsByTagName('img')[0].style.display='block';
+    document.getElementsByTagName('img')[1].style.display='none';
+   }
+  
+
+  </script>
+
+
+</body>
+</html>
