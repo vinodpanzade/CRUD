@@ -4,24 +4,206 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crud operation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        .box1{
-            width: 100%;
-           
-            margin-top: -20px;
+        .box1,input{
+           display: block;
+           margin-top: 10px;
+           padding: 5px 2px;
+           border-radius: 5px;
+          
         }
-
+        .box1{
+            margin-left: 50px;
+        }
+        th{
+            background-color: rgb(150, 130, 130);
+        }
+        td{
+            background-color: aqua;
+        }
+       table,tr,th,td{
+            border: 1px solid rgb(55, 34, 34);
+            border-radius: 5px;
+          
+            
+        }
+        th,td{
+            padding: 10px;
+        }
+    section{
+        display: flex;
+    }
+    .box2{
+        margin-top: 27px;
+        margin-left: 100px;
+    }
+    .box2{
+        background-color: aqua;
+        border-radius: 5px;
+        box-shadow: 1px 1px 10px rgb(167, 167, 173);
+      
+       
+        padding: 12px 8px;
+    }
+    .box1{
+        box-shadow: 1px 1px 10px rgb(167, 167, 173);
+        background-color: aquamarine;
+        padding: 10px;
+        margin-top: 30px;
+        margin-left: 200px;
+        border-radius: 5px;
+    }
+    body{
+        background-color: cadetblue;
+    }
+    *{
+        font-family: "Montserrat", sans-serif;
+    }
+    .box3{
+        box-shadow: 1px 1px 10px rgb(167, 167, 173);
+        background-color: aquamarine;
+        padding: 10px;
+        margin-top: 30px;
+        margin-left: 200px;
+        border-radius: 5px;
+    }
     </style>
+   
 </head>
 <body>
-    <table class="box1">
-        <tr><h3>Create Employee</h3></tr>
-        <tr><td><input type="text" placeholder="enter name"></td></tr>
-        <tr><td><input type="text" placeholder="enter name"></td></tr>
-        <tr><td><input type="text" placeholder="enter name"></td></tr>
-        <tr><td><input type="text" placeholder="enter name"></td></tr>
-        <tr><td  style="text-align: center;"><button >Submit</button></td></tr>
-    </table>
+    <section>
+        <div class="box1" >
+  
+       <h3 style="color: rgb(48, 46, 44);">Create Employee</h3>
+      <input type="text" placeholder="enter name">
+       <input type="number" placeholder="mobile number">
+        <input type="text" placeholder="address">
+    
+       <button onclick="put()" style="margin-top: 5px;margin-left: 25px;padding: 5px 30px;border-radius: 5px;background-color: aqua;"><b>Submit</b></button>
+  
+</div>
+<div class="box2">
+    <table >
+            
+        <thead ><tr><th>Name</th>
+         
+            <th>mobile no</th>
+            <th>address</th>
+            <th>action</th>
+        
+        </tr> </thead>
+        <tbody>
 
+        </tbody>
+    </table>
+</div>
+
+<div class="box3" >
+  
+    <h3 style="color: rgb(48, 46, 44);">Update Employee</h3>
+   <input type="text" placeholder="enter name" id="name">
+    <input type="number" placeholder="mobile number" id="mobile">
+     <input type="text" placeholder="address" id="add">
+  <input type="hidden" placeholder="index" id="index">
+    <button onclick="updatedata()" style="margin-top: 5px;margin-left: 20px;padding: 5px 30px;border-radius: 5px;background-color: aqua;"><b>Update</b></button>
+
+</div>
+</section>
+<script>
+    let obj1=[
+       
+       
+    ]
+    function deleteRow(index) {
+            obj1.splice(index, 1)//splice at which postion add ,how many thing have to delete , what to add 
+            // console.log(EmpoyeeList);
+            showdata()
+        }
+          function put(){
+            // showdata()
+            //   console.log(obj1)
+            let ft=document.getElementsByTagName('input')[0].value;
+            let sn=document.getElementsByTagName('input')[1].value;
+            let td=document.getElementsByTagName('input')[2].value;
+            let ob={
+                name:ft,
+            mobile:sn,
+            address:td,
+            }
+            obj1.push(ob);
+
+         
+            // console.log(obj1)    instead of this we want in table 
+            showdata()
+           document.getElementsByTagName('input')[0].value='';
+         document.getElementsByTagName('input')[1].value='';
+           document.getElementsByTagName('input')[2].value='';
+
+
+           
+          }
+          function updatedata(){
+            let ename=document.querySelector('#name').value;
+            let emobile=document.querySelector('#mobile').value;
+            let eadd=document.querySelector('#add').value;
+            let index = document.querySelector('#index').value
+
+            let ob={
+                name:ename,
+            mobile:emobile,
+            address:eadd,
+            }
+             obj1.splice(index,1,ob)
+             showdata()
+            document.querySelector('#name').value=''
+          document.querySelector('#mobile').value=''
+           document.querySelector('#add').value=''
+          document.querySelector('#index').value=''
+
+          }
+
+          function Updaterow(index){
+               document.querySelector('#name').value=obj1[index].name;
+               document.querySelector('#mobile').value=obj1[index].mobile;
+               document.querySelector('#add').value=obj1[index].address;
+               document.querySelector('#index').value = index
+
+
+          }
+
+
+          function showdata(){
+            //   let s=obj1[0].name;
+            //   let k=obj1[0].mobile;
+
+            //   console.log(s);
+        //        let sel=document.querySelector('tbody');
+        //   sel.innerHTML=`<tr><td>${s}</td></tr>`
+              
+               let sel=document.querySelector('tbody');
+               sel.innerHTML='';
+               for( i=0;i<obj1.length;i++){
+                    sel.innerHTML+=`<tr>
+                        <td>${obj1[i].name}</td>
+                        <td>${obj1[i].mobile}</td>
+                        <td>${obj1[i].address}</td>
+                         <td>
+                            <button class="actionBtn edit" onclick="Updaterow(${i})">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </button>
+                            <button class="actionBtn trash" onclick="deleteRow(${i})">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </td>
+                        </tr>`
+               }
+
+          }
+
+</script>
 </body>
 </html>
